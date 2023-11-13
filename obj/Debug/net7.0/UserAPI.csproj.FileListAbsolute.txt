@@ -35,3 +35,7 @@ D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\Microsoft.AspNetCore.
 D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\System.Web.Cors.dll
+D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\System.Web.Http.dll
+D:\Koding\Praktikum RPLBK\Modul 9\UserAPI\bin\Debug\net7.0\System.Web.Http.Cors.dll

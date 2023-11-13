@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using UserAPI.Data;
 using UserAPI.Models.DTO;
@@ -9,6 +10,7 @@ namespace UserAPI.Controllers;
 [ApiController]
 public class UserApiController : ControllerBase
 {
+    [EnableCors("MyPolicy")]
     [HttpGet]
     public ActionResult<IEnumerable<UserDto>> GetUsers()
     {
