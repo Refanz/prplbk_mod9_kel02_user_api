@@ -28,7 +28,8 @@ public class UserApiController : ControllerBase
         if (user == null) return NotFound();
         return Ok(user);
     }
-
+    
+    [EnableCors("MyPolicy")]
     [HttpPost]
     public ActionResult<UserDto> CreateUser([FromBody] UserDto userDto)
     {
@@ -50,11 +51,14 @@ public class UserApiController : ControllerBase
 
         userDto.Id = UserStore.UsersList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
         UserStore.UsersList.Add(userDto);
-        string response = "Sukses menambahkan data User" + "\nId : " + userDto.Id.ToString() + "\nEmail : " +
-                          userDto.Email;
-        return CreatedAtRoute("GetUser", new { id = userDto.Id }, response);
-    }
 
+        return Ok(new
+        {
+            message = "Sukses menambahkan user",
+        });
+    }
+    
+    [EnableCors("MyPolicy")]
     [Route("/login")]
     [HttpPost]
     public ActionResult<UserDto> LoginUser([FromBody] UserDto userDto)
