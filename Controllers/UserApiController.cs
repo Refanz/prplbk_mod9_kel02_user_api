@@ -53,6 +53,25 @@ public class UserApiController : ControllerBase
         return CreatedAtRoute("GetUser", new { id = userDto.Id }, response);
     }
 
+    [Route("/login")]
+    [HttpPost]
+    public ActionResult<UserDto> LoginUser([FromBody] UserDto userDto)
+    {
+        var user = UserStore.UsersList.FirstOrDefault(u =>
+            u.Email.ToLower() == userDto.Email.ToLower() && u.Password == userDto.Password);
+
+        if (user != null)
+        {
+            return Ok(new
+            {
+                Token = "QpwL5tke4Pnpja7X4",
+            });
+        }
+
+        ModelState.AddModelError("error", "User not found!");
+        return BadRequest(ModelState);
+    }
+
 
     [HttpDelete("{id:int}", Name = "DeleteUser")]
     public IActionResult DeleteUser(int id)
