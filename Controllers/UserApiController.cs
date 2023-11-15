@@ -70,7 +70,8 @@ public class UserApiController : ControllerBase
         {
             return Ok(new
             {
-                Token = "QpwL5tke4Pnpja7X4",
+                status = Ok(),
+                token = "QpwL5tke4Pnpja7X4",
             });
         }
 
@@ -78,7 +79,7 @@ public class UserApiController : ControllerBase
         return BadRequest(ModelState);
     }
 
-
+    [EnableCors("MyPolicy")]
     [HttpDelete("{id:int}", Name = "DeleteUser")]
     public IActionResult DeleteUser(int id)
     {
@@ -96,7 +97,8 @@ public class UserApiController : ControllerBase
         UserStore.UsersList.Remove(user);
         return NoContent();
     }
-
+    
+    [EnableCors("MyPolicy")]
     [HttpPut("{id:int}", Name = "UpdateUser")]
     public IActionResult UpdateUser(int id, [FromBody] UserDto userDto)
     {
@@ -110,7 +112,8 @@ public class UserApiController : ControllerBase
         user.Password = user.Password;
         return NoContent();
     }
-
+    
+    [EnableCors("MyPolicy")]
     [HttpPatch("{id:int}", Name = "UpdatePartialUser")]
     public IActionResult UpdatePartialVilla(int id, JsonPatchDocument<UserDto> patchDTO)
     {
