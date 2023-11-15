@@ -16,7 +16,8 @@ public class UserApiController : ControllerBase
     {
         return Ok(UserStore.UsersList);
     }
-
+    
+    [EnableCors("MyPolicy")]
     [HttpGet("{id:int}", Name = "GetUser")]
     [ProducesResponseType(200, Type = typeof(UserDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -109,7 +110,7 @@ public class UserApiController : ControllerBase
 
         var user = UserStore.UsersList.FirstOrDefault(u => u.Id == id);
         user.Email = userDto.Email;
-        user.Password = user.Password;
+        user.Password = userDto.Password;
         return NoContent();
     }
     
